@@ -94,6 +94,10 @@ const (
 	// will also be automatically printed to os.Stdout.
 	HelpFlag = 1 << iota
 
+	// FixedTermSize uses a fixed terminal width of 80 characters for the help
+	// menu instead of attempting to autodetect it.
+	FixedTermSize
+
 	// PassDoubleDash passes all arguments after a double dash, --, as
 	// remaining command line arguments (i.e. they will not be parsed for
 	// flags).

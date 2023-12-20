@@ -59,10 +59,13 @@ func (a *alignmentInfo) updateLen(name string, indent bool) {
 
 func (p *Parser) getAlignmentInfo() alignmentInfo {
 	ret := alignmentInfo{
-		maxLongLen:      0,
-		hasShort:        false,
-		hasValueName:    false,
-		terminalColumns: getTerminalColumns(),
+		maxLongLen:   0,
+		hasShort:     false,
+		hasValueName: false,
+	}
+
+	if (p.Options & FixedTermSize) != None {
+		ret.terminalColumns = getTerminalColumns()
 	}
 
 	if ret.terminalColumns <= 0 {
